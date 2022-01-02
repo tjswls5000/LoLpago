@@ -1,0 +1,1 @@
+spring.data.mongodb.uri: mongodb+srv://<username>:<password>@gcp01.uokpo.gcp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority

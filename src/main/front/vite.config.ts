@@ -31,10 +31,15 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ['vue', 'md'],
+      pagesDir: [
+        { dir: 'src/**/pages', baseRoute: '' },
+      ],
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
-    Layouts(),
+    Layouts({
+      layoutsDir: 'src/common/layouts',
+    }),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
@@ -44,15 +49,21 @@ export default defineConfig({
         'vue-i18n',
         '@vueuse/head',
         '@vueuse/core',
-        'vitest',
       ],
-      dts: 'src/auto-imports.d.ts',
     }),
 
     // https://github.com/antfu/unplugin-vue-components
     Components({
+      // relative paths to the directory to search for components
+      dirs: ['src/**/components'],
+
       // allow auto load markdown components under `./src/components/`
       extensions: ['vue', 'md'],
+
+      // search for subdirectories
+      deep: true,
+
+      dts: true,
 
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
@@ -66,8 +77,6 @@ export default defineConfig({
           // enabledCollections: ['carbon']
         }),
       ],
-
-      dts: 'src/components.d.ts',
     }),
 
     // https://github.com/antfu/unplugin-icons
@@ -87,9 +96,7 @@ export default defineConfig({
       headEnabled: true,
       markdownItSetup(md) {
         // https://prismjs.com/
-        // @ts-expect-error types mismatch
         md.use(Prism)
-        // @ts-expect-error types mismatch
         md.use(LinkAttributes, {
           pattern: /^https?:\/\//,
           attrs: {
@@ -129,7 +136,7 @@ export default defineConfig({
       },
     }),
 
-    // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
+    // https://github.com/intlify/vite-plugin-vue-i18n
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
@@ -160,19 +167,9 @@ export default defineConfig({
       'vue',
       'vue-router',
       '@vueuse/core',
-      '@vueuse/head',
     ],
     exclude: [
       'vue-demi',
     ],
-  },
-
-  // https://github.com/vitest-dev/vitest
-  test: {
-    include: ['test/**/*.test.ts'],
-    environment: 'jsdom',
-    deps: {
-      inline: ['@vue', '@vueuse', 'vue-demi'],
-    },
   },
 })

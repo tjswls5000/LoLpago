@@ -1,7 +1,6 @@
 [build.environment]
-  # bypass npm auto install
-  NPM_FLAGS = "--version"
-  NODE_VERSION = "16"
+  NPM_FLAGS = "--prefix=/dev/null"
+  NODE_VERSION = "14"
 
 [build]
   publish = "dist"

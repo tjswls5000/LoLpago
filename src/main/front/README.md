@@ -3,13 +3,17 @@
 </p>
 
 <p align='center'>
-Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
+Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br> with modular design pattern.
 </p>
 
 <br>
 
+If you are really into the "Vitesse" starter template created by [Anthony Fu](https://github.com/antfu) (Vue core team member) but want to use the clean architectural pattern instead of monolithic architecture, then you can clone this repo and use your own project. If you want a quick introduction concept, you can read this very short [blog post](https://www.shamscorner.com/blog/vue-3-vite-modular-architecture-vitesse).
+
+<br>
+
 <p align='center'>
-<a href="https://vitesse.netlify.app/">Live Demo</a>
+<a href="https://vite-vue3-clean-arch.netlify.app/" target="_blank">Live Demo</a>
 </p>
 
 <br>
@@ -18,13 +22,13 @@ Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
 
 - ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [pnpm](https://pnpm.js.org/), [ESBuild](https://github.com/evanw/esbuild) - born with fastness
 
-- 🗂 [File based routing](./src/pages)
+- 🗂 [File based routing](./src/common/pages)
 
-- 📦 [Components auto importing](./src/components)
+- 📦 [Components auto importing](./src/common/components)
 
 - 🍍 [State Management via Pinia](https://pinia.esm.dev/)
 
-- 📑 [Layout system](./src/layouts)
+- 📑 [Layout system](./src/common/layouts)
 
 - 📲 [PWA](https://github.com/antfu/vite-plugin-pwa)
 
@@ -46,7 +50,7 @@ Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
 
 - 🦾 TypeScript, of course
 
-- ⚙️ Unit Testing with [Vitest](https://github.com/vitest-dev/vitest), E2E Testing with [Cypress](https://cypress.io/) on [GitHub Actions](https://github.com/features/actions)
+- ⚙️ E2E Testing with [Cypress](https://cypress.io/) on [GitHub Actions](https://github.com/features/actions)
 
 - ☁️ Deploy on Netlify, zero-config
 
@@ -90,8 +94,7 @@ Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
 ### Dev tools
 
 - [TypeScript](https://www.typescriptlang.org/)
-- [Vitest](https://github.com/vitest-dev/vitest) - Unit testing powered by Vite
-- [Cypress](https://cypress.io/) - E2E testing
+- [Cypress](https://cypress.io/) - E2E Testing
 - [pnpm](https://pnpm.js.org/) - fast, disk space efficient package manager
 - [`vite-ssg`](https://github.com/antfu/vite-ssg) - Server-side generation
   - [critters](https://github.com/GoogleChromeLabs/critters) - Critical CSS
@@ -114,6 +117,7 @@ As this template is strongly opinionated, the following provides a curated list 
 - [vitesse-nuxt3](https://github.com/antfu/vitesse-nuxt3) - Vitesse for Nuxt 3
 - [vitesse-nuxt-bridge](https://github.com/antfu/vitesse-nuxt-bridge) - Vitesse for Nuxt 2 with Bridge
 - [vitesse-webext](https://github.com/antfu/vitesse-webext) - WebExtension Vite starter template
+- [vitesse-stackter-clean-architect](https://github.com/shamscorner/vitesse-stackter-clean-architect) by [@shamscorner](https://github.com/shamscorner) - A modular clean architecture pattern in vitesse template
 
 ###### Community
 
@@ -122,12 +126,8 @@ As this template is strongly opinionated, the following provides a curated list 
 - [vitespa](https://github.com/ctholho/vitespa) by [@ctholho](https://github.com/ctholho) - Like Vitesse but without SSG/SSR
 - [vitailse](https://github.com/zynth17/vitailse) by [@zynth17](https://github.com/zynth17) - Like Vitesse but with TailwindCSS
 - [vitesse-modernized-chrome-ext](https://github.com/xiaoluoboding/vitesse-modernized-chrome-ext) by [@xiaoluoboding](https://github.com/xiaoluoboding) - ⚡️ Modernized Chrome Extension Manifest V3 Vite Starter Template
-- [vitesse-stackter-clean-architect](https://github.com/shamscorner/vitesse-stackter-clean-architect) by [@shamscorner](https://github.com/shamscorner) - A modular clean architecture pattern in vitesse template
-- [vitesse-enterprise](https://github.com/FranciscoKloganB/vitesse-enterprise) by [@FranciscoKloganB](https://github.com/FranciscoKloganB) - Consistent coding styles regardless of team-size.
 
 ## Try it now!
-
-> Vitesse requires Node >=14
 
 ### GitHub Template
 
@@ -174,6 +174,17 @@ pnpm build
 ```
 
 And you will see the generated file in `dist` that ready to be served.
+
+### Separation of Concerns
+
+- Create separate folder for each module and place them under `/src` folder
+- The following folders are auto imported within each module
+    - `components/`
+    - `modules/`
+    - `pages/`
+    - `stores/`
+- Place all the layouts in the `common/layouts` folder
+- Place all the custom styles in the `common/styles` folder and import them into `main.css`
 
 ### Deploy on Netlify
 

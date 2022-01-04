@@ -21,7 +21,8 @@ public class ChampionsController {
     private ChampionsService championsService;
 
     @GetMapping("/{name}")
-    public Mono<Champions> getChampionByName(@PathVariable String name){
+    public Mono<Champions> getChampionByName(@PathVariable String name){        
+
         return championsService.getChampionByName(name);
     }
 }

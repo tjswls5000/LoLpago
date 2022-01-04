@@ -2,3 +2,9 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://sunjin:7849@gcp01.uokpo.gcp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+  security:
+    user:
+      name: admin
+      password: 1234
+server:
+  port: 7849

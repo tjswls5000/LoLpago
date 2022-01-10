@@ -1,39 +1,29 @@
 package com.hb.lolpago.champions.service;
 
-import java.util.Optional;
+import java.util.List;
 
-import com.hb.lolpago.champions.dto.ChampionsDto;
 import com.hb.lolpago.champions.entity.Champions;
 import com.hb.lolpago.champions.repository.ChampionsRepository;
-import com.hb.lolpago.champions.repository.ReactiveChampionsRepository;
-import com.hb.lolpago.utlis.AppUtils;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
+@RequiredArgsConstructor
 @Service
 public class ChampionsService {
 
-  @Autowired
-  private ChampionsRepository championsRepository;
-
-  @Autowired
-  private ReactiveChampionsRepository reactiveChampionsRepository;
+  private final ChampionsRepository repository;
   
-  public Optional<Champions> getChampionByName(String name) {
-    return championsRepository.findByName(name);
+  public List<Champions> getAllChampions() {
+    return repository.findAll();
   }
 
-  public Mono<ChampionsDto> getChampionByNameR(String name) {
-    return reactiveChampionsRepository.findByName(name).map(AppUtils::entityToDto);
+  public Champions getChampionByName(String name) {
+    Champions champ = repository.findChampionsByName(name);
+    System.out.println(name);
+    System.out.println(champ);
+    return champ;
   }
 
-  public Flux<Champions> getAllChampions() {
-    return reactiveChampionsRepository.findAll();
-  }
-    
 }

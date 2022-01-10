@@ -13,7 +13,7 @@ public class AppUtils {
     }
 
     public static Champions dtoToEntity(ChampionsDto ChampionsDto) {
-        Champions Champions = new Champions(null, null, null, null);
+        Champions Champions = new Champions(null, null, 0, null);
         BeanUtils.copyProperties(ChampionsDto, Champions);
         return Champions;
     }

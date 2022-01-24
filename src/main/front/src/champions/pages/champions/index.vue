@@ -1,23 +1,25 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { Champion } from '~/champions/types/champion'
 
-const Champs = {
-  name: string
+const champions = ref(Array<Champion>())
+async function getChampions() { // const getChamps = async() => {
+  const info = await fetch('http://localhost:8080/v1/champions/all')
+
+  const response = await info.text()
+  const data = await (response ? JSON.parse(response) : {})
+
+  // const json = await data.json()
+  champions.value = data
 }
-const champsData = fetch('http://localhost:8080/v1/champions/all', {
-  method: 'get',
-  mode: 'no-cors',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
-
+onMounted(getChampions)
 </script>
 
 <template>
   <h1>hello</h1>
-  <li v-for="c in Champs" :key="c.name">
+  <div v-for="c in champions" :key="c.name">
     {{ c.name }}
-  </li>
+  </div>
 </template>
 
 <route lang="yaml">

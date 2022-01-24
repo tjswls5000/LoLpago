@@ -6,6 +6,7 @@ import com.hb.lolpago.champions.dto.ChampionsDto;
 import com.hb.lolpago.champions.entity.Champions;
 import com.hb.lolpago.champions.service.ChampionsService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("v1/champions")
+@CrossOrigin(origins = "http://localhost:4000")
 @RequiredArgsConstructor
 public class ChampionsController {
 

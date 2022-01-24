@@ -9,6 +9,8 @@ declare module 'vue' {
     CarbonLanguage: typeof import('~icons/carbon/language')['default']
     CarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
+    CarbonMusic: typeof import('~icons/carbon/music')['default']
+    CarbonPedestrian: typeof import('~icons/carbon/pedestrian')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
     CarbonWarning: typeof import('~icons/carbon/warning')['default']
     Footer: typeof import('C:/Users/tjswl/project/LoLpago-1/src/main/front/src/common/components/Footer.vue')['default']

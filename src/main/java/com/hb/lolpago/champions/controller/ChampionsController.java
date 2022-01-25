@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("v1/champions")
-@CrossOrigin(origins = "http://localhost:4000")
+@CrossOrigin(origins = "http://localhost:3333")
 @RequiredArgsConstructor
 public class ChampionsController {
 

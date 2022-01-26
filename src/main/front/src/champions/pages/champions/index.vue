@@ -4,7 +4,7 @@ import { Champion } from '~/champions/types/champion'
 
 const champions = ref(Array<Champion>())
 async function getChampions() { // const getChamps = async() => {
-  const info = await fetch('http://localhost:8080/v1/champions/all')
+  const info = await fetch('http://localhost:7849/v1/champions/all')
 
   const response = await info.text()
   const data = await (response ? JSON.parse(response) : {})

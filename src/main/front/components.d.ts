@@ -11,6 +11,7 @@ declare module 'vue' {
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
     Footer: typeof import('D:/WS/LoLpago/src/main/front/src/common/components/Footer.vue')['default']
+    Header: typeof import('D:/WS/LoLpago/src/main/front/src/common/components/Header.vue')['default']
     PlanItem: typeof import('D:/WS/LoLpago/src/main/front/src/orders/components/PlanItem.vue')['default']
     README: typeof import('D:/WS/LoLpago/src/main/front/src/common/components/README.md')['default']
     VButton: typeof import('D:/WS/LoLpago/src/main/front/src/common/components/VButton.vue')['default']

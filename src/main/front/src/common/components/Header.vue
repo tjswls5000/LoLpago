@@ -1,20 +1,19 @@
 <script lang="ts">
 export default {
   
-  mounted: {
+  setup () {
+    onMounted(() => {
+      test
+    })
 
-  },
-  data() {
-    return{
-      test1 : 'testssss'
-    }
-  },
-  methods: {
-    test(){
-      this.test1 = 'xxx'
+    const state = reactive ({
+      test : 'testssss'
+    })
+
+    const test = () => {
+      state.test = 'xxx'
     }
   }
-
 }
 
 

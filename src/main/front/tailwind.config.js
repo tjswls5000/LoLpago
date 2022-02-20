@@ -1,15 +1,11 @@
-import { defineConfig } from 'windicss/helpers'
-import colors from 'windicss/colors'
-import typography from 'windicss/plugin/typography'
+const colors = require('tailwindcss/colors')
 
-export default defineConfig({
-  darkMode: 'class',
-  // https://windicss.org/posts/v30.html#attributify-mode
-  attributify: true,
-
-  plugins: [
-    typography(),
+module.exports = {
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       typography: {
@@ -40,4 +36,7 @@ export default defineConfig({
       },
     },
   },
-})
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
+}

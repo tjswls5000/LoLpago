@@ -8,14 +8,13 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Markdown from 'vite-plugin-md'
-import WindiCSS from 'vite-plugin-windicss'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import Prism from 'markdown-it-prism'
 import LinkAttributes from 'markdown-it-link-attributes'
 
-const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
+const markdownWrapperClasses = 'prose prose-sm mx-auto text-left'
 
 export default defineConfig({
   resolve: {
@@ -49,7 +48,9 @@ export default defineConfig({
         'vue-i18n',
         '@vueuse/head',
         '@vueuse/core',
+        'vitest',
       ],
+      dts: 'src/auto-imports.d.ts',
     }),
 
     // https://github.com/antfu/unplugin-vue-components
@@ -63,7 +64,7 @@ export default defineConfig({
       // search for subdirectories
       deep: true,
 
-      dts: true,
+      dts: 'src/components.d.ts',
 
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
@@ -82,11 +83,6 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-icons
     Icons({
       autoInstall: true,
-    }),
-
-    // https://github.com/antfu/vite-plugin-windicss
-    WindiCSS({
-      safelist: markdownWrapperClasses,
     }),
 
     // https://github.com/antfu/vite-plugin-md
@@ -167,9 +163,19 @@ export default defineConfig({
       'vue',
       'vue-router',
       '@vueuse/core',
+      '@vueuse/head',
     ],
     exclude: [
       'vue-demi',
     ],
+  },
+
+  // https://github.com/vitest-dev/vitest
+  test: {
+    include: ['test/**/*.test.ts'],
+    environment: 'jsdom',
+    deps: {
+      inline: ['@vue', '@vueuse', 'vue-demi'],
+    },
   },
 })

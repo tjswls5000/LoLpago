@@ -32,11 +32,13 @@ If you are really into the "Vitesse" starter template created by [Anthony Fu](ht
 
 - 📲 [PWA](https://github.com/antfu/vite-plugin-pwa)
 
-- 🎨 [Windi CSS](https://github.com/windicss/windicss) - next generation utility-first CSS framework
+- 🎨 [Tailwind CSS V3](https://tailwindcss.com/) - next generation utility-first CSS framework
 
 - 😃 [Use icons from any icon sets, with no compromise](https://github.com/antfu/unplugin-icons)
 
 - 🌍 [I18n ready](./locales)
+
+- 🚀 Shipped with [Apollo GraphQL](https://www.apollographql.com/)
 
 - 🗒 [Markdown Support](https://github.com/antfu/vite-plugin-md)
 
@@ -50,7 +52,7 @@ If you are really into the "Vitesse" starter template created by [Anthony Fu](ht
 
 - 🦾 TypeScript, of course
 
-- ⚙️ E2E Testing with [Cypress](https://cypress.io/) on [GitHub Actions](https://github.com/features/actions)
+- ⚙️ Unit Testing with [Vitest](https://github.com/vitest-dev/vitest), E2E Testing with [Cypress](https://cypress.io/) on [GitHub Actions](https://github.com/features/actions)
 
 - ☁️ Deploy on Netlify, zero-config
 
@@ -60,8 +62,7 @@ If you are really into the "Vitesse" starter template created by [Anthony Fu](ht
 
 ### UI Frameworks
 
-- [Windi CSS](https://github.com/windicss/windicss) (On-demand [TailwindCSS](https://tailwindcss.com/)) - lighter and faster, with a bunch of additional features!
-  - [Windi CSS Typography](https://windicss.org/plugins/official/typography.html)
+- [Tailwind CSS V3](https://tailwindcss.com/) - Rapidly build modern websites without ever leaving your HTML
 
 ### Icons
 
@@ -77,7 +78,6 @@ If you are really into the "Vitesse" starter template created by [Anthony Fu](ht
 - [`unplugin-vue-components`](https://github.com/antfu/unplugin-vue-components) - components auto import
 - [`unplugin-auto-import`](https://github.com/antfu/unplugin-auto-import) - Directly use Vue Composition API and others without importing
 - [`vite-plugin-pwa`](https://github.com/antfu/vite-plugin-pwa) - PWA
-- [`vite-plugin-windicss`](https://github.com/antfu/vite-plugin-windicss) - Windi CSS Integration
 - [`vite-plugin-md`](https://github.com/antfu/vite-plugin-md) - Markdown as components / components in Markdown
   - [`markdown-it-prism`](https://github.com/jGleitz/markdown-it-prism) - [Prism](https://prismjs.com/) for syntax highlighting
   - [`prism-theme-vars`](https://github.com/antfu/prism-theme-vars) - customizable Prism.js theme using CSS variables
@@ -85,6 +85,9 @@ If you are really into the "Vitesse" starter template created by [Anthony Fu](ht
   - [`vite-plugin-vue-i18n`](https://github.com/intlify/vite-plugin-vue-i18n) - Vite plugin for Vue I18n
 - [VueUse](https://github.com/antfu/vueuse) - collection of useful composition APIs
 - [`@vueuse/head`](https://github.com/vueuse/head) - manipulate document head reactively
+- [Vue Apollo GraphQL](https://v4.apollo.vuejs.org/)
+  - [@apollo/client](https://github.com/apollographql/apollo-client) - Fully-featured caching GraphQL client with vue integration
+  - [@vue/apollo-composable](https://github.com/vuejs/apollo) - Apollo GraphQL functions for Vue Composition API
 
 ### Coding Style
 
@@ -94,6 +97,7 @@ If you are really into the "Vitesse" starter template created by [Anthony Fu](ht
 ### Dev tools
 
 - [TypeScript](https://www.typescriptlang.org/)
+- [Vitest](https://github.com/vitest-dev/vitest) - Unit testing powered by Vite
 - [Cypress](https://cypress.io/) - E2E Testing
 - [pnpm](https://pnpm.js.org/) - fast, disk space efficient package manager
 - [`vite-ssg`](https://github.com/antfu/vite-ssg) - Server-side generation
@@ -104,7 +108,6 @@ If you are really into the "Vitesse" starter template created by [Anthony Fu](ht
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - Vue 3 `<script setup>` IDE support
   - [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Icon inline display and autocomplete
   - [i18n Ally](https://marketplace.visualstudio.com/items?itemName=lokalise.i18n-ally) - All in one i18n support
-  - [Windi CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - IDE support for Windi CSS
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ## Variations
@@ -126,6 +129,7 @@ As this template is strongly opinionated, the following provides a curated list 
 - [vitespa](https://github.com/ctholho/vitespa) by [@ctholho](https://github.com/ctholho) - Like Vitesse but without SSG/SSR
 - [vitailse](https://github.com/zynth17/vitailse) by [@zynth17](https://github.com/zynth17) - Like Vitesse but with TailwindCSS
 - [vitesse-modernized-chrome-ext](https://github.com/xiaoluoboding/vitesse-modernized-chrome-ext) by [@xiaoluoboding](https://github.com/xiaoluoboding) - ⚡️ Modernized Chrome Extension Manifest V3 Vite Starter Template
+- [vitesse-enterprise](https://github.com/FranciscoKloganB/vitesse-enterprise) by [@FranciscoKloganB](https://github.com/FranciscoKloganB) - Consistent coding styles regardless of team-size.
 
 ## Try it now!
 
@@ -152,6 +156,8 @@ When you use this template, try follow the checklist to update your info properl
 - [ ] Change the favicon in `public`
 - [ ] Remove the `.github` folder which contains the funding info
 - [ ] Clean up the READMEs and remove routes
+- [ ] Update client service url for Apollo GraphQL in `apollo.config.js` if you use GraphQL API
+- [ ] Update http link for GraphQL API in `src/common/ApolloClient.ts` if you use GraphQL API
 
 And, enjoy :)
 
